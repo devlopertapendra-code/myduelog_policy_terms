@@ -5,77 +5,425 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="MyDueLog — उधारो, आम्दानी, खर्च र वित्तीय रिपोर्ट सजिलै व्यवस्थापन गर्ने Android एप।" />
   <title>MyDueLog — स्मार्ट डिजिटल हिसाब</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="mobile.css" />
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="MyDueLog गृहपृष्ठ">
-      <img src="../../Desktop/app%20logo/app_logo_1024_1024.png" alt="" />
-      <span>MyDue<span>Log</span></span>
-    </a>
-    <nav aria-label="मुख्य नेभिगेसन">
-      <a href="#features">विशेषताहरू</a><a href="#showcase">एप झलक</a><a href="#security">सुरक्षा</a><a href="#manual">सहायता</a>
-    </nav>
-    <a class="header-cta" href="#manual">सुरु गर्नुहोस् <span>↗</span></a>
-    <button class="menu-btn" aria-label="मेनु खोल्नुहोस्" aria-expanded="false"><span></span><span></span></button>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-copy reveal">
-        <div class="eyebrow"><span></span> तपाईंको हिसाब, तपाईंको नियन्त्रण</div>
-        <h1>कागजी हिसाबबाट<br><em>स्मार्ट डिजिटल</em> वित्ततर्फ।</h1>
-        <p>उधारो, आम्दानी, खर्च र भुक्तानी—सबै एउटै सुरक्षित र सरल एपमा। MyDueLog ले तपाईंको पैसाको तस्वीर सधैँ स्पष्ट राख्छ।</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#manual">एप चलाउन सिक्नुहोस् <span>→</span></a>
-          <a class="btn ghost" href="#showcase"><span class="play">▶</span> एपको झलक</a>
-        </div>
-        <div class="trust-row"><div class="avatars"><span>रु</span><span>✓</span><span>₨</span></div><p><strong>सजिलो र भरपर्दो</strong><br>व्यक्ति र साना व्यवसायका लागि</p></div>
-      </div>
-      <div class="hero-visual reveal">
-        <div class="orb"></div>
-        <div class="phone-card"><img src="../../Desktop/app%20logo/app%20screenshot/high%20quality/dashboard.jpeg" alt="MyDueLog को ड्यासबोर्ड स्क्रिन" /></div>
-        <div class="float-card receive"><span>↓</span><div><small>लिन बाँकी</small><strong>रु २,२०,०००</strong></div></div>
-        <div class="float-card report"><span>↗</span><div><small>यस महिनाको बचत</small><strong>+ २४.८%</strong></div></div>
-        <div class="dot-grid"></div>
-      </div>
-    </section>
+<header class="site-header">
+  <a class="brand" href="#home" aria-label="MyDueLog गृहपृष्ठ">
+    <img src="images/app_logo_1024_1024.png" alt="MyDueLog Logo">
+    <span>MyDue<span>Log</span></span>
+  </a>
 
-    <section class="proof">
-      <p>दैनिक वित्तीय कामका लागि बनाइएको</p>
-      <div><span>उधारो हिसाब</span><i></i><span>आम्दानी–खर्च</span><i></i><span>बजेट</span><i></i><span>रिपोर्ट</span><i></i><span>बहु-प्रयोगकर्ता</span></div>
-    </section>
+  <nav aria-label="मुख्य नेभिगेसन">
+    <a href="#features">विशेषताहरू</a>
+    <a href="#showcase">एप झलक</a>
+    <a href="#security">सुरक्षा</a>
+    <a href="#manual">सहायता</a>
+  </nav>
 
-    <section class="features section" id="features">
-      <div class="section-head reveal"><div><span class="kicker">सबै कुरा, एकै ठाउँमा</span><h2>हिसाब राख्नु अब<br>झन्झट होइन।</h2></div><p>MyDueLog ले दैनिक लेनदेनदेखि विस्तृत रिपोर्टसम्मको कामलाई छिटो, व्यवस्थित र बुझ्न सजिलो बनाउँछ।</p></div>
-      <div class="feature-grid">
-        <article class="feature-card dark reveal"><div class="icon">↕</div><span>01</span><h3>उधारो व्यवस्थापन</h3><p>कसबाट लिनु छ र कसलाई दिनु छ—पार्टीअनुसार स्पष्ट रेकर्ड राख्नुहोस्।</p><a href="#showcase">थप हेर्नुहोस् →</a></article>
-        <article class="feature-card orange reveal"><div class="icon">◎</div><span>02</span><h3>आम्दानी र खर्च</h3><p>हरेक कारोबार वर्गीकरण गरेर तपाईंको वास्तविक cash flow थाहा पाउनुहोस्।</p><a href="#showcase">थप हेर्नुहोस् →</a></article>
-        <article class="feature-card light reveal"><div class="icon">⌁</div><span>03</span><h3>स्मार्ट रिपोर्ट</h3><p>मिति, श्रेणी र खाताअनुसार रिपोर्ट फिल्टर गरी सही निर्णय लिनुहोस्।</p><a href="#showcase">थप हेर्नुहोस् →</a></article>
-        <article class="feature-card blue reveal"><div class="icon">⌾</div><span>04</span><h3>बजेट र लक्ष्य</h3><p>खर्चको सीमा तय गर्नुहोस्, प्रगति हेर्नुहोस् र बचतको बानी बसाल्नुहोस्।</p><a href="#manual">कसरी चलाउने →</a></article>
-      </div>
-    </section>
+  <a class="header-cta" href="#manual">
+    सुरु गर्नुहोस् <span>↗</span>
+  </a>
 
-    <section class="showcase section" id="showcase">
-      <div class="showcase-copy reveal"><span class="kicker">स्पष्ट ड्यासबोर्ड</span><h2>एक नजरमै<br>पूरा वित्तीय अवस्था।</h2><p>लिन बाँकी, दिन बाँकी, मासिक आम्दानी, खर्च र हालको बचत—मुख्य जानकारी खोल्नेबित्तिकै देखिन्छ।</p><ul><li><span>✓</span> छिटो कारोबार थप्ने shortcut</li><li><span>✓</span> खर्चको trend र चेतावनी</li><li><span>✓</span> खोज्न र फिल्टर गर्न सजिलो</li></ul><a class="text-link" href="#manual">पूरा प्रयोग विधि हेर्नुहोस् <span>→</span></a></div>
-      <div class="showcase-art reveal"><div class="screen back"><img src="../../Desktop/app%20logo/app%20screenshot/high%20quality/party%20dues.jpeg" alt="MyDueLog पार्टी उधारो स्क्रिन" /></div><div class="screen front"><img src="../../Desktop/app%20logo/app%20screenshot/high%20quality/income%20expense%20report.jpeg" alt="MyDueLog आम्दानी खर्च रिपोर्ट स्क्रिन" /></div></div>
-    </section>
+  <button class="menu-btn" aria-label="मेनु खोल्नुहोस्" aria-expanded="false">
+    <span></span>
+    <span></span>
+  </button>
+</header>
 
-    <section class="security section" id="security">
-      <div class="security-art reveal"><div class="shield">✓</div><div class="ring r1"></div><div class="ring r2"></div><span class="chip c1">PIN सुरक्षा</span><span class="chip c2">डेटा ब्याकअप</span><span class="chip c3">Sync</span></div>
-      <div class="security-copy reveal"><span class="kicker">तपाईंको डेटा, सुरक्षित</span><h2>भरोसा गर्न मिल्ने<br>वित्तीय साथी।</h2><p>PIN/biometric पहुँच, backup र synchronization सुविधाले तपाईंको महत्त्वपूर्ण हिसाब सुरक्षित र उपलब्ध राख्न मद्दत गर्छ।</p><div class="stats"><div><strong>२४/७</strong><span>रेकर्ड पहुँच</span></div><div><strong>१००%</strong><span>तपाईंको नियन्त्रण</span></div></div></div>
-    </section>
+<main>
 
-    <section class="manual section" id="manual">
-      <div class="manual-card reveal"><div><span class="kicker">सहायता चाहियो?</span><h2>पहिलो कारोबारदेखि<br>पूर्ण रिपोर्टसम्म।</h2><p>विस्तृत step-by-step manual नेपाली र English दुवै भाषामा उपलब्ध छ।</p></div><div class="manual-actions"><a class="btn white" href="../../Desktop/app%20logo/manual/manual_nepali.pdf" target="_blank">नेपाली Manual <span>↗</span></a><a class="btn outline-white" href="../../Desktop/app%20logo/manual/manual_eng.pdf" target="_blank">English Manual <span>↗</span></a></div></div>
-    </section>
-  </main>
+<section class="hero" id="home">
 
-  <footer><a class="brand" href="#home"><img src="../../Desktop/app%20logo/app_logo_1024_1024.png" alt="" /><span>MyDue<span>Log</span></span></a><p>From paper records to smart digital finance.</p><p>© <span id="year"></span> MyDueLog. All rights reserved.</p></footer>
-  <script src="script.js"></script>
+<div class="hero-copy reveal">
+
+<div class="eyebrow">
+<span></span>
+तपाईंको हिसाब, तपाईंको नियन्त्रण
+</div>
+
+<h1>
+कागजी हिसाबबाट<br>
+<em>स्मार्ट डिजिटल</em> वित्ततर्फ।
+</h1>
+
+<p>
+उधारो, आम्दानी, खर्च र भुक्तानी—सबै एउटै सुरक्षित र सरल एपमा।
+MyDueLog ले तपाईंको पैसाको तस्वीर सधैँ स्पष्ट राख्छ।
+</p>
+
+<div class="hero-actions">
+
+<a class="btn primary" href="#manual">
+एप चलाउन सिक्नुहोस्
+<span>→</span>
+</a>
+
+<a class="btn ghost" href="#showcase">
+<span class="play">▶</span>
+एपको झलक
+</a>
+
+</div>
+
+<div class="trust-row">
+
+<div class="avatars">
+<span>रु</span>
+<span>✓</span>
+<span>₨</span>
+</div>
+
+<p>
+<strong>सजिलो र भरपर्दो</strong><br>
+व्यक्ति र साना व्यवसायका लागि
+</p>
+
+</div>
+
+</div>
+
+<div class="hero-visual reveal">
+
+<div class="orb"></div>
+
+<div class="phone-card">
+<img src="images/dashboard.jpeg"
+alt="MyDueLog Dashboard">
+</div>
+
+<div class="float-card receive">
+<span>↓</span>
+<div>
+<small>लिन बाँकी</small>
+<strong>रु २,२०,०००</strong>
+</div>
+</div>
+
+<div class="float-card report">
+<span>↗</span>
+<div>
+<small>यस महिनाको बचत</small>
+<strong>+२४.८%</strong>
+</div>
+</div>
+
+<div class="dot-grid"></div>
+
+</div>
+
+</section>
+
+<section class="proof">
+
+<p>दैनिक वित्तीय कामका लागि बनाइएको</p>
+
+<div>
+
+<span>उधारो हिसाब</span>
+<i></i>
+
+<span>आम्दानी–खर्च</span>
+<i></i>
+
+<span>बजेट</span>
+<i></i>
+
+<span>रिपोर्ट</span>
+<i></i>
+
+<span>बहु-प्रयोगकर्ता</span>
+
+</div>
+
+</section>
+
+<section class="features section" id="features">
+
+<div class="section-head reveal">
+
+<div>
+
+<span class="kicker">
+सबै कुरा, एकै ठाउँमा
+</span>
+
+<h2>
+हिसाब राख्नु अब<br>
+झन्झट होइन।
+</h2>
+
+</div>
+
+<p>
+MyDueLog ले दैनिक लेनदेनदेखि विस्तृत रिपोर्टसम्मको कामलाई
+छिटो, व्यवस्थित र बुझ्न सजिलो बनाउँछ।
+</p>
+
+</div>
+
+<div class="feature-grid">
+
+<article class="feature-card dark reveal">
+
+<div class="icon">↕</div>
+
+<span>01</span>
+
+<h3>उधारो व्यवस्थापन</h3>
+
+<p>
+कसबाट लिनु छ र कसलाई दिनु छ—
+पार्टीअनुसार स्पष्ट रेकर्ड राख्नुहोस्।
+</p>
+
+<a href="#showcase">
+थप हेर्नुहोस् →
+</a>
+
+</article>
+
+<article class="feature-card orange reveal">
+
+<div class="icon">◎</div>
+
+<span>02</span>
+
+<h3>आम्दानी र खर्च</h3>
+
+<p>
+हरेक कारोबार वर्गीकरण गरेर
+तपाईंको वास्तविक Cash Flow थाहा पाउनुहोस्।
+</p>
+
+<a href="#showcase">
+थप हेर्नुहोस् →
+</a>
+
+</article>
+
+<article class="feature-card light reveal">
+
+<div class="icon">⌁</div>
+
+<span>03</span>
+
+<h3>स्मार्ट रिपोर्ट</h3>
+
+<p>
+मिति, श्रेणी र खाताअनुसार रिपोर्ट फिल्टर गरी
+सही निर्णय लिनुहोस्।
+</p>
+
+<a href="#showcase">
+थप हेर्नुहोस् →
+</a>
+
+</article>
+
+<article class="feature-card blue reveal">
+
+<div class="icon">⌾</div>
+
+<span>04</span>
+
+<h3>बजेट र लक्ष्य</h3>
+
+<p>
+खर्चको सीमा तय गर्नुहोस्,
+प्रगति हेर्नुहोस् र बचतको बानी बसाल्नुहोस्।
+</p>
+
+<a href="#manual">
+कसरी चलाउने →
+</a>
+
+</article>
+
+</div>
+
+</section>
+
+<section class="showcase section" id="showcase">
+
+<div class="showcase-copy reveal">
+
+<span class="kicker">
+स्पष्ट ड्यासबोर्ड
+</span>
+
+<h2>
+एक नजरमै<br>
+पूरा वित्तीय अवस्था।
+</h2>
+
+<p>
+लिन बाँकी, दिन बाँकी, मासिक आम्दानी,
+खर्च र हालको बचत—मुख्य जानकारी
+खोल्नेबित्तिकै देखिन्छ।
+</p>
+
+<ul>
+
+<li>
+<span>✓</span>
+छिटो कारोबार थप्ने Shortcut
+</li>
+
+<li>
+<span>✓</span>
+खर्चको Trend र चेतावनी
+</li>
+
+<li>
+<span>✓</span>
+खोज्न र फिल्टर गर्न सजिलो
+</li>
+
+</ul>
+
+<a class="text-link" href="#manual">
+पूरा प्रयोग विधि हेर्नुहोस् →
+</a>
+
+</div>
+
+<div class="showcase-art reveal">
+
+<div class="screen back">
+<img src="images/party_dues.jpeg"
+alt="Party Dues">
+</div>
+
+<div class="screen front">
+<img src="images/income_expense_report.jpeg"
+alt="Income Expense Report">
+</div>
+
+</div>
+
+</section>
+
+<section class="security section" id="security">
+
+<div class="security-art reveal">
+
+<div class="shield">✓</div>
+
+<div class="ring r1"></div>
+<div class="ring r2"></div>
+
+<span class="chip c1">PIN सुरक्षा</span>
+<span class="chip c2">डेटा ब्याकअप</span>
+<span class="chip c3">Sync</span>
+
+</div>
+
+<div class="security-copy reveal">
+
+<span class="kicker">
+तपाईंको डेटा, सुरक्षित
+</span>
+
+<h2>
+भरोसा गर्न मिल्ने<br>
+वित्तीय साथी।
+</h2>
+
+<p>
+PIN/Biometric सुरक्षा, Backup तथा
+Synchronization सुविधाले
+तपाईंको वित्तीय डेटा सुरक्षित राख्छ।
+</p>
+
+<div class="stats">
+
+<div>
+<strong>२४/७</strong>
+<span>रेकर्ड पहुँच</span>
+</div>
+
+<div>
+<strong>१००%</strong>
+<span>तपाईंको नियन्त्रण</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="manual section" id="manual">
+
+<div class="manual-card reveal">
+
+<div>
+
+<span class="kicker">
+सहायता चाहियो?
+</span>
+
+<h2>
+पहिलो कारोबारदेखि<br>
+पूर्ण रिपोर्टसम्म।
+</h2>
+
+<p>
+विस्तृत Step-by-Step Manual
+नेपाली र English दुवै भाषामा उपलब्ध छ।
+</p>
+
+</div>
+
+<div class="manual-actions">
+
+<a class="btn white"
+href="pdf/manual_nepali.pdf"
+target="_blank">
+नेपाली Manual ↗
+</a>
+
+<a class="btn outline-white"
+href="pdf/manual_eng.pdf"
+target="_blank">
+English Manual ↗
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<a class="brand" href="#home">
+<img src="images/app_logo_1024_1024.png" alt="MyDueLog Logo">
+<span>MyDue<span>Log</span></span>
+</a>
+
+<p>
+From paper records to smart digital finance.
+</p>
+
+<p>
+© <span id="year"></span> MyDueLog. All rights reserved.
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
