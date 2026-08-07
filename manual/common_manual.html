@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Due Log - User Guide / प्रयोगकर्ता निर्देशिका</title>
+    <style>
+        :root {
+            --primary: #1e3a8a; 
+            --secondary: #3b82f6; 
+            --background: #f0fdf4; 
+            --text-color: #1f2937;
+            --panel-bg: #ffffff;
+            --border: #e5e7eb;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 12px;
+        }
+        
+        /* Language Switcher Styles */
+        .lang-switch-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: #f1f5f9;
+            padding: 8px;
+            border-radius: 50px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #64748b;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px rgba(30,58,138,0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+        }
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .video-container iframe, .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .accordion {
+            background-color: var(--panel-bg);
+            color: var(--primary);
+            cursor: pointer;
+            padding: 20px;
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-align: left;
+            outline: none;
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .active-acc, .accordion:hover {
+            background-color: #f8fafc;
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+        .accordion:after {
+            content: '\002B';
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-left: 10px;
+            transition: 0.3s;
+        }
+        .active-acc:after {
+            content: "\2212";
+        }
+        .panel {
+            padding: 0 20px;
+            background-color: var(--panel-bg);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            border-radius: 0 0 8px 8px;
+            margin-bottom: 5px;
+        }
+        .panel-content {
+            padding: 20px 0;
+        }
+        .panel p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        .panel ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .panel li {
+            margin-bottom: 12px;
+            padding: 15px;
+            background: #f1f5f9;
+            border-left: 4px solid var(--secondary);
+            border-radius: 4px;
+            font-size: 1.05rem;
+        }
+        .manual-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 35px 20px;
+            background-color: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .manual-section h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+        .manual-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 28px;
+            background-color: var(--primary);
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(30,58,138,0.2);
+        }
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(59,130,246,0.3);
+        }
+        .btn svg {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: #6b7280;
+        }
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Language Switcher -->
+        <div class="lang-switch-container">
+            <button id="btn-ne" class="lang-btn active" onclick="setLanguage('ne')">नेपाली</button>
+            <button id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+        </div>
+
+        <!-- ==============================================
+                          NEPALI CONTENT 
+             ============================================== -->
+        <div id="content-ne">
+            <div class="header">
+                <h1>My Due Log मा स्वागत छ</h1>
+                <p><strong>प्रयोगकर्ता निर्देशिका</strong><br>
+                My Due Log एप कसरी प्रयोग गर्ने भनेर सजिलै सिक्नुहोस् र उत्कृष्ट अनुभव प्राप्त गर्नुहोस्। यो निर्देशिका संस्करण १.६ (version 1.6) अनुसार बनाइएको हो। यदि तपाईंले पुरानो संस्करण डाउनलोड गर्नुभएको छ भने कृपया अपडेट गर्नुहोस्।</p>
+            </div>
+
+
+            <!-- YouTube Video Embed for Nepali -->
+            <div class="video-container">
+               <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qnRjB6tPHvA?si=w1ixzlt_tI-mZ-3F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <!-- Section 1 -->
+            <button class="accordion">नयाँ खाता कसरी बनाउने (Sign Up)?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Sign Up:</strong> यदि तपाइँ पहिलो पटक एप खोल्दै हुनुहुन्छ भने तलको 'Sign Up' बटनमा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Fill Details:</strong> नयाँ खाता बनाउने फारम खुल्नेछ। त्यहाँ आफ्नो पूरा नाम र इमेल ठेगाना राख्नुहोस्।</li>
+                        <li><strong>३ Set Password:</strong> आफूले सम्झने नयाँ पासवर्ड राख्नुहोस् र त्यही पासवर्ड पुनः टाइप गर्नुहोस्।</li>
+                        <li><strong>४ Register:</strong> प्राइभेसी पोलिसीमा टिक लगाएर 'Register' बटन थिच्नुहोस्।</li>
+                        <li><strong>५ Congratulations!:</strong> खाता बनिसकेपछि ड्यासबोर्ड खुल्नेछ। पछि खोल्दा यही इमेल र पासवर्ड प्रयोग गर्नुहोस्।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <button class="accordion">खाता भइसकेको खण्डमा लगइन कसरी गर्ने ?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>यदि तपाईंले पहिले नै खाता बनाइसक्नु भएको छ भने एप खोल्न तलका चरणहरू पालना गर्नुहोस्:</p>
+                    <ul>
+                        <li><strong>१ Go to Login Screen:</strong> यदि तपाईं साइन अप स्क्रिनमा हुनुहुन्छ भने, त्यहाँ रहेको 'Already have an account? Login here' मा थिच्नुहोस्।</li>
+                        <li><strong>२ Enter Email Address:</strong> लगइन स्क्रिनमा इमेल ठेगाना राख्ने ठाउँमा आफ्नो इमेल राख्नुहोस्।</li>
+                        <li><strong>३ Enter Password:</strong> पासवर्ड राख्ने ठाउँमा खाता बनाउँदा राखेको पासवर्ड राख्नुहोस्।</li>
+                        <li><strong>४ Login:</strong> इमेल र पासवर्ड सही राखेपछि तल रहेको 'Login' बटन थिच्नुहोस्। लगइन भएपछि एपको ड्यासबोर्ड खुल्नेछ।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <button class="accordion">पासवर्ड बिर्सिएमा के गर्ने?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Click Forgot Password:</strong> पासवर्ड बिर्सनुभयो भने लगइन स्क्रिनमा रहेको 'Forgot Password' मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Enter Email Address:</strong> पासवर्ड रिसेट गर्ने डाइलग खुल्नेछ। त्यहाँ आफ्नो इमेल ठेगाना राख्नुहोस्।</li>
+                        <li><strong>३ Click Send Button:</strong> इमेल राखिसकेपछि 'Send' बटन क्लिक गर्नुहोस्।</li>
+                        <li><strong>४ Reset Password:</strong> इमेलमा पासवर्ड रिसेट गर्ने लिंक आउनेछ। त्यसमा क्लिक गरेर नयाँ पासवर्ड बनाउन सक्नुहुन्छ।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <button class="accordion">पहिलो पटकको सेटिङ (भाषा र क्यालेन्डर)</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>यदि तपाईं पहिलो पटक एप खोल्दै हुनुहुन्छ वा भाषा र क्यालेन्डर सेट गर्नुपर्नेछ भने तलका चरणहरू पालना गर्नुहोस्:</p>
+                    <ul>
+                        <li><strong>१ Open Menu:</strong> ड्यासबोर्डको माथि दायाँ कुनामा रहेको तीनवटा थोप्लामा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Go to Settings:</strong> त्यसपछि 'Setting' मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>३ Change Language:</strong> सेटिङमा 'Change Language' (भाषा परिवर्तन) मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>४ Choose Language:</strong> आफ्नो अनुकूल भाषा (नेपाली वा अङ्ग्रेजी) छान्नुहोस्।</li>
+                    </ul>
+                    <p><strong>ध्यान दिनुपर्ने कुराहरू:</strong><br>
+                    अङ्ग्रेजी भाषा छान्नुभयो भने कारोबार गर्दा मिति अङ्ग्रेजी (A.D.) मा लेख्नुपर्छ।<br>
+                    नेपाली भाषा छान्नुभयो भने कारोबार गर्दा मिति विक्रम संवत् (B.S.) मा लेख्नुपर्छ।</p>
+                </div>
+            </div>
+
+            <!-- Section 5/6 -->
+            <button class="accordion">पहिलो पटकको सेटिङ (प्रयोगकर्ता सदस्य व्यवस्थापन)</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Open Menu:</strong> माथि दायाँ कुनाको तीनवटा थोप्लामा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Go to Settings:</strong> 'Setting' मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>३ Choose User Member Management:</strong> 'प्रयोगकर्ता सदस्य व्यवस्थापन' (User Member Management) मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>४ Add New Member:</strong> तल रहेको प्लस (+) बटन थिच्नुहोस्। नयाँ विन्डो खुल्नेछ।</li>
+                        <li><strong>५ Enter Member Name:</strong> नयाँ सदस्यको नाम लेख्नुहोस् (जसले यो मोबाइलमा एप प्रयोग गर्दैछ)।</li>
+                        <li><strong>६ Save Name:</strong> नाम लेखेर 'Save' बटन थिच्नुहोस्।</li>
+                        <li><strong>७ Choose User and Start Work:</strong> मेम्बर लिस्टमा आफ्नो नाम छानेर क्लिक गर्नुहोस् र काम सुरु गर्नुहोस्।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 7/8 -->
+            <button class="accordion">पहिलो पटकको सेटिङ (सुरुवाती ब्यालेन्स/रकम)</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>आफूसँग हाल भएको रकम सेट गर्नुहोस्, जसले गर्दा हिसाब राख्न सजिलो हुन्छ:</p>
+                    <ul>
+                        <li><strong>१ Open Menu:</strong> ड्यासबोर्डको माथि दायाँ कुनामा रहेको तीनवटा थोप्लामा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Go to Settings:</strong> 'Setting' मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>३ Choose Account Management:</strong> खाता व्यवस्थापन (Add, subtract, and adjust transaction accounts) मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>४ Adjust Cash Amount:</strong> 'Cash' लेखिएको खातामा क्लिक गर्नुहोस्।</li>
+                        <li><strong>५ Save Balance Amount:</strong> 'Opening Balance' मा हाल आफूसँग भएको नगद रकम लेखेर 'Save' गर्नुहोस्।</li>
+                        <li><strong>६ Add New Bank Account:</strong> बैंक खाता थप्न चाहनुहुन्छ भने प्लस (+) बटन थिच्नुहोस्।</li>
+                        <li><strong>७ Save Bank Details:</strong> बैंकको नाम र रकम राखेर 'Save' गर्नुहोस्।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 9 -->
+            <button class="accordion">पार्टी कसरी थप्ने?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Go to Payment Menu:</strong> तल रहेको 'भुक्तानी/लेनदेन' (Payment/Transaction) मा थिच्नुहोस्।</li>
+                        <li><strong>२ Add New Party:</strong> सूचीमा पार्टी छैन भने दायाँ तल रहेको प्लस (+) बटन थिच्नुहोस्।</li>
+                        <li><strong>३ Fill Details:</strong> पार्टीको नाम र फोन नम्बर भर्नुहोस्।</li>
+                        <li><strong>४ Old Remaining Amount:</strong> पुरानो बाँकी लिनु पर्ने भए सिधै रकम लेख्नुहोस्, दिनु पर्ने भए माइनस (-) राखेर लेख्नुहोस्।</li>
+                        <li><strong>५ Save:</strong> 'Save' बटन थिचेर पार्टी सुरक्षित गर्नुहोस्।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 10/11/12 -->
+            <button class="accordion">कारोबार वा लेनदेन कसरी थप्ने?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Choose Payment Menu:</strong> 'Payment/Transaction' मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ View Party List:</strong> पार्टीहरूको सूची देखिनेछ।</li>
+                        <li><strong>३ Click on Party:</strong> कारोबार गर्न चाहेको पार्टीको नाममा क्लिक गर्नुहोस्।</li>
+                        <li><strong>४ Choose Received or Given:</strong> रकम प्राप्त गरेको भए हरियो (Received) र दिएको भए रातो (Given) बटन थिच्नुहोस्।</li>
+                        <li><strong>५ Fill Date and Amount:</strong> मिति र रकम (Payment Amount) भर्नुहोस्।</li>
+                        <li><strong>६ Specify Method:</strong> माध्यम (नगद वा बैंक) छान्नुहोस्।</li>
+                        <li><strong>७ कारोबारको उद्देश्य (Purpose) छान्नुहोस्:</strong> यहाँ BORROW (सापटी) स्वतः छानिएको हुन्छ। यदि उद्देश्य फरक छ भने, त्यहाँ क्लिक गर्नुहोस् र तलका मध्ये कुनै एक छान्नुहोस्:<br>
+                        - <strong>BORROW:</strong> सापटी (जसको ब्याज तिर्नु पर्दैन)।<br>
+                        - <strong>LOAN:</strong> ऋण (जुन ब्याजसहित फिर्ता गर्नुपर्छ)। यसमा मासिक ब्याजदर लेख्न अनिवार्य छ।<br>
+                        - <strong>SELLS_CREDIT:</strong> उधारोमा सामान बेच्दा वा त्यसको पैसा प्राप्त गर्दा।<br>
+                        - <strong>SELLS_PAID:</strong> नगदमा सामान बेच्दा।<br>
+                        - <strong>PURCHASE_PAID:</strong> नगद तिरेर सामान किन्दा।<br>
+                        - <strong>PURCHASE_CREDIT:</strong> उधारोमा सामान किन्दा वा त्यसको पैसा तिर्दा।<br>
+                        - <strong>EXPENSE:</strong> खर्च (सामान किन्ने बाहेकका खर्चहरू, जस्तै: ज्याला वा तलब दिँदा)।<br>
+                        - <strong>INCOME:</strong> आम्दानी (सामान बेच्ने बाहेकका आम्दानीहरू, जस्तै: ज्याला वा तलब पाउँदा)।</li>
+                        <li><strong>८ Interest and Due Date:</strong> ऋण (LOAN) भए ब्याजदर र भाका मिति अनिवार्य राख्नुहोस्।</li>
+                        <li><strong>९ Save:</strong> माथि रहेको 'Save' बटन थिचेर कारोबार सुरक्षित गर्नुहोस्।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 13/14 -->
+            <button class="accordion">आम्दानी वा खर्च कसरी थप्ने?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Choose Income/Expense Menu:</strong> 'आम्दानी/खर्च' (Income/Expense) मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Choose Income or Expense:</strong> आम्दानी थप्न हरियो (Add Income) र खर्च थप्न रातो (Add Expense) बटन थिच्नुहोस्।</li>
+                        <li><strong>३ Enter Date:</strong> मिति लेख्नुहोस्।</li>
+                        <li><strong>४ Choose Category:</strong> कुन वर्ग (Category) को आम्दानी वा खर्च हो छान्नुहोस्।</li>
+                        <li><strong>५ Add Amount and Remarks:</strong> रकम र विवरण लेख्नुहोस्।</li>
+                        <li><strong>६ Choose Method:</strong> रकम कहाँबाट आयो वा गयो (नगद/बैंक) छान्नुहोस्।</li>
+                        <li><strong>७ Save:</strong> 'Save' बटन थिच्नुहोस्।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 15 -->
+            <button class="accordion">कारोबार गरेको पार्टीको पूरा स्टेटमेन्ट कसरी हेर्ने?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Open Menu:</strong> तीनवटा थोप्लामा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Go to Reports:</strong> 'रिपोर्टहरू' (Reports) मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>३ Choose Party Statement:</strong> 'पार्टी स्टेटमेन्ट' छान्नुहोस्।</li>
+                        <li><strong>४ Choose Party:</strong> 'पार्टी छान्नुहोस्' मा क्लिक गरेर पार्टी छान्नुहोस्।</li>
+                        <li><strong>५ View and Share:</strong> विवरण हेर्नुहोस् र 'Share Statement' थिचेर अरूलाई पठाउनुहोस्।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 16 -->
+            <button class="accordion">आम्दानी/खर्च बजेट लिमिट कसरी सेट गर्ने?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Open Menu:</strong> तीनवटा थोप्लामा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Go to Setting:</strong> 'सेटिङ' (Setting) मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>३ Choose Manage Budget:</strong> 'बजेट मिलाउनुहोस' मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>४ Add Category:</strong> नयाँ वर्ग थप्न प्लस (+) थिच्नुहोस्।</li>
+                        <li><strong>५ Set Budget:</strong> मासिक र वार्षिक बजेट राखेर 'Save' गर्नुहोस्।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 17 -->
+            <button class="accordion">रिमाइन्डर कसरी सेट गर्ने?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>१ Open Menu:</strong> तीनवटा थोप्लामा क्लिक गर्नुहोस्।</li>
+                        <li><strong>२ Choose Reminder and Note:</strong> 'रिमाइन्डर र नोटहरू' मा क्लिक गर्नुहोस्।</li>
+                        <li><strong>३ Choose Calendar Type:</strong> क्यालेन्डरको प्रकार (AD वा BS) छान्नुहोस्।</li>
+                        <li><strong>४ Write Title and Message:</strong> रिमाइन्डरको शीर्षक र सन्देश लेख्नुहोस्।</li>
+                        <li><strong>५ Choose Date and Time:</strong> मिति र समय छान्नुहोस्।</li>
+                        <li><strong>६ Save Details:</strong> 'Save' बटन थिचेर सुरक्षित गर्नुहोस्। तोकिएको समयमा नोटिफिकेसन आउनेछ।</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <h2>धन्यवाद!</h2>
+                <p>My Due Log रोज्नुभएकोमा धेरै धेरै धन्यवाद। यहाँको समय शुभ रहोस्!</p>
+                <p>थप जानकारीको लागि तल दिइएको इमेलमा सम्पर्क गर्न सक्नुहुन्छ:</p>
+                <p><a href="mailto:rokaya.madan22@gmail.com">rokaya.madan22@gmail.com</a></p>
+            </div>
+        </div>
+
+
+        <!-- ==============================================
+                          ENGLISH CONTENT 
+             ============================================== -->
+        <div id="content-en" style="display: none;">
+            <div class="header">
+                <h1>Welcome to My Due Log</h1>
+                <p><strong>User Guide</strong><br>
+                Learn easily how to use the My Due Log app and get the best experience. This user guide is made according to version 1.6. If you have downloaded an older version, please update it.</p>
+            </div>
+
+            <div class="video-container">
+                <video controls poster="https://via.placeholder.com/800x450.png?text=English+Video+Tutorial">
+                    <source src="english_video_link.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Section 1 -->
+            <button class="accordion">How to create a new account (Sign Up)?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>1 Sign Up:</strong> If you are opening the app for the first time, click the 'Sign Up' button below.</li>
+                        <li><strong>2 Fill Details:</strong> A form to create a new account will open. Enter your full name and email address there.</li>
+                        <li><strong>3 Set Password:</strong> Set a new password that you can remember and type the same password again.</li>
+                        <li><strong>4 Register:</strong> Tick the privacy policy and press the 'Register' button.</li>
+                        <li><strong>5 Congratulations!:</strong> After the account is created, the dashboard will open. Use this same email and password when opening it later.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <button class="accordion">How to login if you already have an account</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>If you have already created an account, follow the steps below to open the app:</p>
+                    <ul>
+                        <li><strong>1 Go to Login Screen:</strong> If you are on the sign up screen, press 'Already have an account? Login here' located on the screen. Then your Login Screen will appear.</li>
+                        <li><strong>2 Enter Email Address:</strong> Enter your email address in the space provided for email address on the login screen.</li>
+                        <li><strong>3 Enter Password:</strong> In the space provided for password, enter the password you set when creating the account.</li>
+                        <li><strong>4 Login:</strong> After correctly entering the email and password, press the 'Login' button at the bottom. After pressing the login button, the app's dashboard will open successfully.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <button class="accordion">What to do if you forget your password?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>1 Click Forgot Password:</strong> If you have forgotten your account password, click the 'Forgot Password' button on the login screen.</li>
+                        <li><strong>2 Enter Email Address:</strong> After clicking the forgot password button, a dialog to reset the password will open. Enter your email address there.</li>
+                        <li><strong>3 Click Send Button:</strong> After entering the email address, click the 'Send' button located there.</li>
+                        <li><strong>4 Reset Password:</strong> After pressing the send button, a link to reset your password will come to your email. By opening your email and clicking on that link, you can create (reset) your new password. Now cancel this dialog.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <button class="accordion">First-time setup (Language and Calendar)</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>If you are opening the app for the first time or if you need to set up your preferred language and calendar, follow the steps below:</p>
+                    <ul>
+                        <li><strong>1 Open Menu:</strong> Click on the three dots at the top right of the dashboard.</li>
+                        <li><strong>2 Go to Settings:</strong> Then click on 'Setting'.</li>
+                        <li><strong>3 Change Language:</strong> On the screen that appears after clicking on setting, click on 'Change Language'.</li>
+                        <li><strong>4 Choose Language:</strong> After clicking there, a dialog will appear, choose your preferred language (Nepali or English) in it. Now your app will display the language and date according to the language you have chosen.</li>
+                    </ul>
+                    <p><strong>Points to Note (Rules Regarding Dates):</strong><br>
+                    If you choose the English language, the date must be written in English or A.D. when doing transactions.<br>
+                    If you choose the Nepali language, the date must be written in Bikram Sambat (B.S.) or Nepali when doing transactions.</p>
+                </div>
+            </div>
+
+            <!-- Section 5/6 -->
+            <button class="accordion">First-time setup (User Member Management)</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>If you are opening the app for the first time or if you need to set up a new member, follow the steps below:</p>
+                    <ul>
+                        <li><strong>1 Open Menu:</strong> Click on the three dots at the top right of the dashboard. After clicking there, a dialog will open.</li>
+                        <li><strong>2 Go to Settings:</strong> Click where it says 'Setting' there. After clicking on setting, the setting screen will open.</li>
+                        <li><strong>3 Choose User Member Management:</strong> Click on 'User Member Management' on the setting screen.<br>
+                        Information: This feature is intended for managing separately the data kept by different individuals and managing separately who has made how much income/expense when many people (e.g., husband and wife or other family members) use the app using the same user ID and password.</li>
+                        <li><strong>4 Add New Member:</strong> Press the plus (+) button at the very bottom of the new screen that opens after clicking on member management. After pressing the plus button, a new window will appear.</li>
+                        <li><strong>5 Enter Member Name:</strong> There, in the place to write the name (Enter Member Name), write the name of the person who is using the app on this mobile.</li>
+                        <li><strong>6 Save Name:</strong> After writing the user's name, press the 'Save' button. After pressing the save button, that name will appear in the member list.</li>
+                        <li><strong>7 Choose User and Start Work:</strong> Now click on your name seen in the member list. After clicking on this, whatever data you keep from this mobile now, will be saved safely as being kept by that same user (you).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 7/8 -->
+            <button class="accordion">First-time setup (Balance Amount / Opening Balance)</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>If you are opening the app for the first time or if you need to set it up, set up the balance (total) amount you currently have. Doing this will make it easy to keep an account of how much money you currently have and how much money you have to pay. For this, follow the steps below:</p>
+                    <ul>
+                        <li><strong>1 Open Menu:</strong> To set up the balance amount you have, click on the three dots at the top right of the dashboard.</li>
+                        <li><strong>2 Go to Settings:</strong> Click where it says 'Setting' there. After clicking on setting, the setting screen will open.</li>
+                        <li><strong>3 Choose Account Management:</strong> After clicking on setting, click where it says 'Click here to add, subtract, and adjust transaction accounts'.</li>
+                        <li><strong>4 Adjust Cash Amount:</strong> There will initially be an account named 'Cash'. Click on it. After clicking on it, a dialog will appear.</li>
+                        <li><strong>5 Save Balance Amount:</strong> In the dialog, in the place that says 'Opening Balance', write the total cash balance amount you currently have and press the 'Save' button.</li>
+                        <li><strong>6 Add New Bank Account (If necessary):</strong> If you also want to keep the money from your bank account in the app, press the plus (+) button at the bottom right of that same screen. After pressing the plus button, an 'Add New Account' dialog will appear.</li>
+                        <li><strong>7 Save by entering Bank Account Details:</strong> Here, in the place that says 'Account Name', write your bank's name, and in the place that says 'Opening Balance', write the total amount in that account. Now, to add this account, press the 'Save' button.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 9 -->
+            <button class="accordion">How to add a party?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>1 Go to Payment Menu:</strong> To add a transaction, you must first add a party. Press on 'Payment/Transaction' at the bottom of the screen.</li>
+                        <li><strong>2 Add New Party:</strong> If the party is not in the list, press the plus (+) button at the bottom right.</li>
+                        <li><strong>3 Fill Details:</strong> In the form, you must fill out the party's name (Name Cast) and phone number. You can also add an email and relationship.</li>
+                        <li><strong>4 Old Remaining Amount:</strong> If there is an amount to be received, write it directly. If it is to be given, put a minus (-) before the amount.</li>
+                        <li><strong>5 Save:</strong> Press save to add the party.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 10/11/12 -->
+            <button class="accordion">How to add a transaction or deal?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>1 Choose Payment Menu:</strong> To keep a record of a transaction done with any party, click on 'Payment/Transaction' located in the bottom navigation bar.</li>
+                        <li><strong>2 View Party List:</strong> Here you will see the list of parties you added earlier. (To add a new one, press the '+' button on the right).</li>
+                        <li><strong>3 Click on Party:</strong> Click on the name of the party in the list to record a transaction with the party.</li>
+                        <li><strong>4 Choose Received or Given:</strong> The screen of the previous transaction with the party will open. Now, if you received the amount, click the 'Received' (green) button, and if you gave it, click the 'Given' (red) button.</li>
+                        <li><strong>5 Fill Date and Amount:</strong> After the form opens, write the transaction date and write the amount in 'Payment Amount'. If necessary, add details in 'Remarks'.</li>
+                        <li><strong>6 Specify Details and Transaction Method:</strong> Select the transaction method (Here Cash is automatically selected, but if you have linked a bank account, you can choose that too).</li>
+                        <li><strong>7 Choose Payment/Transaction Purpose:</strong> Here BORROW is automatically selected. If the purpose is different, click there and choose one of the following:<br>
+                        BORROW: Borrowing (whose interest does not have to be returned).<br>
+                        LOAN: Loan (which must be returned with interest). The monthly interest rate is mandatory to write here.<br>
+                        SELLS_CREDIT: When selling goods on credit or receiving its money.<br>
+                        SELLS_PAID: When selling goods in cash.<br>
+                        PURCHASE_PAID: When buying goods by paying money.<br>
+                        PURCHASE_CREDIT: When buying goods on credit or paying for it.<br>
+                        EXPENSE: Expense (other than buying goods, like: when giving wages or salary).<br>
+                        INCOME: Income (other than selling goods, like: when getting wages or salary).</li>
+                        <li><strong>8 Interest and Due Date:</strong> If LOAN is chosen, the monthly interest rate is mandatory to write. If there is a due date to pay, you can put it in 'Repayment Details'.</li>
+                        <li><strong>9 Save:</strong> After filling out all the necessary details, press the 'Save' button at the top. After that, your transaction will be saved in the relevant party, and you will return to the screen showing the list of transactions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 13/14 -->
+            <button class="accordion">How to add income or expense?</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>1 Choose Income/Expense Menu:</strong> To keep a record of income or expenses, click on 'Income/Expense' located in the bottom navigation bar.</li>
+                        <li><strong>2 Choose Income or Expense:</strong> The screen showing the list of income or expenses will open. Now, if it's income, click the 'Add Income' (green) button, and if it's an expense, click the 'Add Expense' (red) button. After clicking the button, the screen to add income or expense will appear.</li>
+                        <li><strong>3 Enter Date:</strong> Here, where it says date, if the language is Nepali, write the date in Nepali, and if the language is English, write the date in English.</li>
+                        <li><strong>4 Choose Category:</strong> Choose the correct category in which the income or expense was made. To select a category, click on 'Choose' and select a category from the dialog that appears there.</li>
+                        <li><strong>5 Add Amount and Remarks:</strong> Where it says amount, write the amount of the income or expense. If there are any additional details, write them in Remarks.</li>
+                        <li><strong>6 Choose Method:</strong> Select the medium or account in which the amount was added or reduced.</li>
+                        <li><strong>7 Save:</strong> After filling out all the details, press the 'Save' button at the top.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 15 -->
+            <button class="accordion">How to view the full statement of a transacted party</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>1 Open Menu:</strong> To view the full statement of the party with whom a transaction or deal was made, click on the three dots at the top right of the screen.</li>
+                        <li><strong>2 Go to Reports:</strong> After clicking on the three dots, click on 'Reports' from the menu that appears there.</li>
+                        <li><strong>3 Choose Party Statement:</strong> After clicking on Reports, click on 'Party Statement'. After clicking here, you will see a statement of one party.</li>
+                        <li><strong>4 Choose Party:</strong> Click on 'Choose Party' located at the top right. After clicking here, a dialog to choose the party will appear.</li>
+                        <li><strong>5 View and Share Statement:</strong> Click on the name of the relevant party from the dialog to choose a party. After that, the statement of that party will appear. Now, to share this statement, press on Share Statement.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 16 -->
+            <button class="accordion">How to set Income Expense Budget Limit</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <ul>
+                        <li><strong>1 Open Menu:</strong> To adjust or set the budget for monthly or annual income or expenses, click on the three dots at the top right of the screen.</li>
+                        <li><strong>2 Go to Setting:</strong> After clicking on the three dots, click on 'Setting' from the menu that appears there.</li>
+                        <li><strong>3 Choose Manage Budget:</strong> After clicking Setting, click on 'Manage Budget'. After clicking on this, the list of your income or expense categories will appear.</li>
+                        <li><strong>4 Add New Category (If necessary):</strong> If you do not find the category you want, you can add a new category by pressing the plus (+) button at the bottom right.</li>
+                        <li><strong>5 Set Budget:</strong> Click on the category you want to set. Where it says 'Monthly' and 'Annual Budget', write the budget amount you want to set and save.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 17 -->
+            <button class="accordion">How to set a Reminder</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>If it is necessary to receive or give an amount on time, or to remind about any other information, you can set up a reminder. (Note: To use this feature, you have to give Notification Permission to the app on the mobile.)</p>
+                    <ul>
+                        <li><strong>1 Open Menu:</strong> Click on the three dots at the top right of the dashboard.</li>
+                        <li><strong>2 Choose Reminder and Note:</strong> After clicking on the three dots, click on 'Reminder and Note' that appears there. After clicking on this, a dialog to set the reminder will open.</li>
+                        <li><strong>3 Choose Calendar Type:</strong> After the dialog opens, choose the calendar type (AD or BS). Reminders can be set according to the calendar type you have chosen.</li>
+                        <li><strong>4 Write Title and Message:</strong> Where it says 'Reminder Title', write the main heading (Title) that will be seen when the notification comes. Likewise, in 'Message', write what the notification is for (like: money collection day), write that message.</li>
+                        <li><strong>5 Choose Date and Time:</strong> Choose the date to show the notification from the calendar and then choose the exact time to show the notification.</li>
+                        <li><strong>6 Save Details:</strong> After setting all the details, press the 'Save' button. Now, at the date and time you set, a notification with the title and message will automatically appear on your mobile.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <h2>Thank you!</h2>
+                <p>Thank you very much for choosing My Due Log. Have a good time!</p>
+                <p>If you need any further information, you can email at the email given below or contact on the social links available in the app.</p>
+                <p><a href="mailto:rokaya.madan22@gmail.com">rokaya.madan22@gmail.com</a></p>
+            </div>
+        </div>
+
+        
+        <!-- थप डिटेल (More Details) Section -->
+        <div class="manual-section">
+            <h3 id="manual-title">थप डिटेल हेर्न (For more details)</h3>
+            <div class="manual-buttons">
+                <!-- PDF हरूको लिंक यहाँ राख्नुहोस् -->
+                <a href="MyDueLog_UserGuide_Nepali.pdf" target="_blank" class="btn">
+                    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    नेपाली म्यानुअल
+                </a>
+                <a href="MyDueLog_UserGuide_English.pdf" target="_blank" class="btn">
+                    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    English Manual
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        // Language Toggle Function
+        function setLanguage(lang) {
+            var btnNe = document.getElementById('btn-ne');
+            var btnEn = document.getElementById('btn-en');
+            var contentNe = document.getElementById('content-ne');
+            var contentEn = document.getElementById('content-en');
+            var manualTitle = document.getElementById('manual-title');
+
+            if (lang === 'en') {
+                contentEn.style.display = 'block';
+                contentNe.style.display = 'none';
+                btnEn.classList.add('active');
+                btnNe.classList.remove('active');
+                manualTitle.innerText = 'For more details';
+            } else {
+                contentNe.style.display = 'block';
+                contentEn.style.display = 'none';
+                btnNe.classList.add('active');
+                btnEn.classList.remove('active');
+                manualTitle.innerText = 'थप डिटेल हेर्न';
+            }
+        }
+
+        // Accordion Logic
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active-acc");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
