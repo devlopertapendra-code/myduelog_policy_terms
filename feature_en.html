@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Due Log</title>
+    <style>
+        /* सबै डिभाइसको लागि रेस्पोन्सिभ सेटिङ */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f7f6; /* हल्का र शान्त ब्याकग्राउन्ड */
+        }
+        h2 {
+            color: #1a73e8; /* आकर्षक नीलो रङ */
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        details {
+            background: #ffffff;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.06); /* आधुनिक छायाँ (Shadow) */
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        details:hover {
+            box-shadow: 0 5px 12px rgba(0,0,0,0.12); /* माउस लैजाँदा छायाँ बढ्ने */
+        }
+        summary {
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            padding: 15px 20px;
+            background-color: #ffffff;
+            color: #2c3e50;
+            list-style: none; /* पुरानो एरो (Arrow) हटाउन */
+            position: relative;
+            display: block;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Safari को लागि पुरानो एरो हटाउन */
+        }
+        /* नयाँ एरो डिजाइन (दायाँतिर) */
+        summary::after {
+            content: '▼';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            color: #888;
+            transition: transform 0.3s ease;
+        }
+        details[open] summary {
+            background-color: #f8faff; /* खुल्दाको ब्याकग्राउन्ड */
+            color: #1a73e8;
+            border-bottom: 1px solid #eeeeee;
+        }
+        details[open] summary::after {
+            transform: translateY(-50%) rotate(180deg); /* खुल्दा एरो घुम्ने */
+            color: #1a73e8;
+        }
+        .content {
+            padding: 20px;
+            background-color: #fafbfc;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #111;
+        }
+        
+        /* मोबाइल डिभाइसको लागि रेस्पोन्सिभ डिजाइन */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            summary {
+                font-size: 1.05em;
+                padding: 12px 15px;
+            }
+            summary::after {
+                right: 15px;
+            }
+            .content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Welcome to My Due Log 👋</h2>
+    <p>This app completely makes your traditional paper accounting digital, secure, and easy. Now, all your tasks of managing daily income, expenses, credit, borrowing, loans, installments, and budget are possible from a single app.</p>
+    <p>This is a smart financial management app built for individual users, families, shops, and small businesses. MyDueLog will become your reliable companion to change paper accounting into a secure, organized, and easy digital system.</p>
+
+    <details>
+        <summary>MyDueLog helps you in this way:</summary>
+        <div class="content">
+            <ul>
+                <li>💰 To keep income and expenses organized.</li>
+                <li>👥 To keep separate accounts for customers, suppliers, and friends.</li>
+                <li>📊 To understand your financial condition through reports and charts.</li>
+                <li>🎯 To control expenses by making a budget.</li>
+                <li>🔔 To get reminders for remaining due amounts.</li>
+                <li>☁️ To securely Backup and Sync data in the Cloud.</li>
+                <li>🇳🇵 To keep records in both Nepali (BS) and English (AD) dates.</li>
+            </ul>
+        </div>
+    </details>
+
+    <p><strong>Its main features are as follows:</strong></p>
+
+    <details>
+        <summary>1. Multi-language Feature</summary>
+        <div class="content">
+            Can be used according to your own language.
+        </div>
+    </details>
+
+    <details>
+        <summary>2. Offline Use</summary>
+        <div class="content">
+            It can be easily used even without the internet (offline) and can be synced when the internet is available.
+        </div>
+    </details>
+
+    <details>
+        <summary>3. Detailed Management of Daily Income and Expenses</summary>
+        <div class="content">
+            <p>In MyDueLog, your daily income, expenses, savings, and other financial transactions can be easily recorded. It transforms the hassle of paper accounting into digital form.</p>
+            <ul>
+                <li><strong>Easy Search:</strong> Any day's, month's, or year's accounts can be easily viewed and searched by old transaction date, name, or amount when needed later.</li>
+                <li><strong>Smart Record (Bill/Voucher):</strong> A photo of the bill, receipt, or voucher can be attached and kept secure with each transaction. Later, when needed, those photos can be zoomed to view or shared on WhatsApp, Email, etc. The worry of losing important bills is reduced.</li>
+                <li><strong>Filter Feature:</strong> Photos can be filtered according to source (Payment/Transaction), Party, and type (IN/OUT).</li>
+                <li><strong>Complete Reports and Charts:</strong> The complete details of total income, expenses, and savings can be viewed in one place. The overall financial picture is presented through various charts and graphs. An analysis of where, at what time, by which family member, and in which Category the most expense occurred can be easily obtained. And that report can be shared on WhatsApp, Email, etc.</li>
+                <li><strong>Error Correction Feature:</strong> If there is a mistake in any transaction, it can be easily edited and unnecessary transactions can be deleted.</li>
+            </ul>
+            <p>You will find answers to all these queries related to income and expenses in the app itself:</p>
+            <ul>
+                <li>How much income has been earned till today?</li>
+                <li>How much was spent today?</li>
+                <li>How much income was earned this month?</li>
+                <li>How much was spent this month?</li>
+                <li>How much income was earned this year?</li>
+                <li>How much was spent this year?</li>
+                <li>What is the total income so far?</li>
+                <li>What is the total expense so far?</li>
+                <li>How much savings is left now?</li>
+                <li>What percentage of income is savings?</li>
+                <li>On which day was the highest income?</li>
+                <li>On which day was the highest expense?</li>
+                <li>Which was the biggest expense?</li>
+                <li>Which was the biggest income?</li>
+                <li>Did the expense increase or decrease this month compared to last month?</li>
+                <li>Did the income increase or decrease this month compared to last month?</li>
+                <li>What is the average daily expense?</li>
+                <li>What is the average daily income?</li>
+                <li>Has this month's savings goal been reached?</li>
+                <li>How much was the food expense?</li>
+                <li>How much was the travel expense?</li>
+                <li>How much was the home expense?</li>
+                <li>How much was the business expense?</li>
+                <li>In which Category was the highest expense?</li>
+                <li>In which Category was the lowest expense?</li>
+                <li>What are the Top 5 expense Categories of this month?</li>
+                <li>Which Category's expense increased compared to last month?</li>
+                <li>Which Category's expense decreased?</li>
+                <li>What are the Recurring Expenses?</li>
+                <li>Which is the most repeated expense?</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>4. Budget Control System</summary>
+        <div class="content">
+            <p>An expense limit (Budget) can be set for each month or year. As expenses increase, information on how much budget is left, whether the budget is about to be exceeded, or has already been exceeded is immediately visible. This helps in keeping separate budgets according to Category, understanding the progress of expenses, and controlling unnecessary expenses.</p>
+            <p>Three states of Budget Status:</p>
+            <ul>
+                <li>🟢 SAFE (Green): Expense is less than 80% of the budget. (Expense is within the safe limit)</li>
+                <li>🟠 WARNING (Orange): Expense has reached between 80% and 100% of the budget. (Budget is about to run out, please pay attention)</li>
+                <li>🔴 CROSSED (Red): Expense has exceeded the budget. (Budget has been crossed)</li>
+            </ul>
+            <p>You will also find answers to these queries related to the budget:</p>
+            <ul>
+                <li>What is the budget for this month?</li>
+                <li>How much food budget is left?</li>
+                <li>How much travel budget is left?</li>
+                <li>Which budget is SAFE?</li>
+                <li>Which budget is in WARNING?</li>
+                <li>Which budget is CROSSED?</li>
+                <li>Which Category exceeded the budget?</li>
+                <li>What percentage of the budget has been spent?</li>
+                <li>Is the budget goal fulfilled?</li>
+                <li>Which budget finished the fastest?</li>
+                <li>In which budget is more amount still left?</li>
+                <li>Did the budget improve compared to last month?</li>
+                <li>What is the Budget Progress?</li>
+                <li>How much of this year's budget has been used?</li>
+                <li>Is saving possible according to the budget?</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>5. Separate Accounting for Credit, Borrowing, Loan, and Installments (Party Ledger)</summary>
+        <div class="content">
+            <p>All transactions with customers, suppliers, friends, relatives, or other persons can be kept separately. Accounts related to credit, borrowing, loans, and installments are kept systematically and the remaining amount (Balance) is automatically updated after each payment.</p>
+            <ul>
+                <li>It can be clearly seen who has to pay how much money to you and how much you have to pay to whom.</li>
+                <li>Transactions can be searched by filtering according to transaction date, amount, type, person or customer, receivable party, payable party, settled party, and the member making the transaction.</li>
+                <li>A photo of the bill, receipt, or voucher can be attached and kept secure with each transaction. Later, when needed, those photos can be zoomed to view or shared on WhatsApp, Email, etc. The worry of losing important bills is reduced.</li>
+                <li>The Party Statement of any person can be viewed and shared on WhatsApp, Email, etc. when necessary.</li>
+                <li>Accounts can be kept with interest, the amount with interest on upcoming dates can be viewed, and the payment history according to installments can be kept secure.</li>
+            </ul>
+            <p>You will also find answers to these queries related to transactions and parties:</p>
+            <ul>
+                <li>Who has to pay money to me?</li>
+                <li>To whom do I have to pay money?</li>
+                <li>With whom is the highest remaining amount?</li>
+                <li>With which Party did the most transactions occur?</li>
+                <li>Which Party's account has been settled?</li>
+                <li>Which Party paid the most money?</li>
+                <li>From which Party is the most amount receivable?</li>
+                <li>To which Party is the most amount payable?</li>
+                <li>What is the Running Balance of which Party?</li>
+                <li>When did the last transaction of which Party happen?</li>
+                <li>With which Party did a cash transaction happen?</li>
+                <li>When did which transaction happen?</li>
+                <li>Which transaction happened on which date?</li>
+                <li>What are all the transactions that happened today?</li>
+                <li>Can only Payment In be viewed?</li>
+                <li>Can only Payment Out be viewed?</li>
+                <li>Which was the biggest transaction?</li>
+                <li>Which was the smallest transaction?</li>
+                <li>Which was the last transaction of today?</li>
+                <li>What is the amount to be paid today?</li>
+                <li>What is the amount to be collected today?</li>
+                <li>What are the Dues of this week?</li>
+                <li>What are the Dues of this month?</li>
+                <li>What are the Overdue amounts?</li>
+                <li>When is the next installment to be paid?</li>
+                <li>What is the next installment amount?</li>
+                <li>How many installments were paid?</li>
+                <li>How many installments are left?</li>
+                <li>How much interest was added?</li>
+                <li>What is the total interest?</li>
+                <li>Which Loan is the biggest?</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>6. Balance Amount and Cashflow Report</summary>
+        <div class="content">
+            The cash balance in hand can be viewed. Details of how much amount came, how much was spent, and how much is left now are clearly available.
+        </div>
+    </details>
+
+    <details>
+        <summary>7. Even if the mobile is lost, your data is not lost</summary>
+        <div class="content">
+            Your accounting is important. Therefore, MyDueLog securely Backups and Syncs data via Firebase. Due to this, data is automatically recovered after logging into a new mobile. Example: Even if the mobile breaks down, your years of accounting and photos remain safe.
+        </div>
+    </details>
+
+    <details>
+        <summary>8. Reminders and Notifications</summary>
+        <div class="content">
+            The app shows reminders or notifications for timely payments and necessary tasks.
+        </div>
+    </details>
+
+    <details>
+        <summary>9. Multi-Account Feature</summary>
+        <div class="content">
+            Multiple IDs (Accounts) can be easily used on the same device.
+        </div>
+    </details>
+
+    <details>
+        <summary>10. Family Access and Reporting</summary>
+        <div class="content">
+            It has an excellent feature where all family members can use it on their respective devices from a single ID, and everyone's records and reports can be viewed separately or together.
+        </div>
+    </details>
+
+</body>
+</html>
